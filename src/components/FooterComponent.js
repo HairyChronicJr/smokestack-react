@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import appleIcon from './images/app-store.png';
+import googleIcon from './images/google-play.png';
 
 function Footer(props) {
     return (
@@ -29,8 +30,8 @@ function Footer(props) {
             </div>
 
             <div className="col-12 col-sm-3 my-1 text-center">
-                <a href="https://www.apple.com/app-store/"><img className="my-1" src="../../app-store.png" alt="Apple store" /></a>
-                <a href="https://play.google.com"><img className="my-1" src="./img/google-play.png" alt="Google Play" /></a>
+                <a href="https://www.apple.com/app-store/"><img className="my-1" src={appleIcon} alt="Apple store" /></a>
+                <a href="https://play.google.com"><img className="my-1" src={googleIcon} alt="Google Play" /></a>
             </div>
 
             <div className="col-sm-3 text-center d-none d-sm-inline-block">
