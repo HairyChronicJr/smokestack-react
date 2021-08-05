@@ -1,19 +1,50 @@
 import React from 'react';
 import mainimage from "./images/recipes.jpg";
 
+function RenderStars(rating) {
+    const fullStars = Math.trunc(rating);
+    let halfStars = 0;
+    if (rating - fullStars > 0) {
+        halfStars = 1;
+        console.log('half');
+    }
+    const emptyStars = 5 - halfStars - rating;
+    const starArray = [];
+    for (let i=0; i < fullStars; i++) {
+        starArray.push(<span className="fa fa-star text-warning"></span>);
+    }
+    if (halfStars > 0) {
+        starArray.push(<span className="fa fa-star-half-o text-warning"></span>)
+    }
+    for (let i=0; i < emptyStars; i++) {
+        starArray.push(<span className="fa fa-star-o text-warning"></span>);
+    }
+    return (
+        <>
+            {starArray}
+        </>
+    )
+}
+
 function RenderRecipeItem({recipe}) {
     return (
-        <div className="col-6 col-sm-3 recipe">
-            <img src={recipe.image} className="img-thumbnail" width="100%"/>
-            <p class="font-weight-bold text-light">{recipe.name}<br /><span className="fa fa-star text-warning"></span><span className="fa fa-star text-warning"></span><span className="fa fa-star text-warning"></span><span className="fa fa-star text-warning"></span><span className="fa fa-star text-warning"></span></p>
+        <div className="col recipe">
+            <img src={recipe.image} alt={recipe.alt} className="img-thumbnail" width="100%"/>
+            <p class="font-weight-bold text-light">{recipe.name}<br />{RenderStars(recipe.rating)}</p>
         </div>
     )
 }
 
 function RecipeSection(props) {
-    const recipelist = props.recipes.map(recipe => {
+    const categoryCheck = recipe => {
+        if (recipe.category.includes(props.category)) {
+            return recipe;
+        }
+    }
+    const filteredList = props.recipes.filter(categoryCheck);
+    const recipelist = filteredList.map(recipe => {
         return (
-            <div key={recipe.id} className='col m-1'>
+            <div className="col" key={recipe.id}>
                 <RenderRecipeItem recipe={recipe}/>
             </div>
         );
@@ -27,12 +58,12 @@ function RecipeSection(props) {
                 </div>
             </div>
             <div className="row">
-                <div className="col">
-                    <fieldset id="beef" className="p-0 my-3 bg-dark">
-                        <legend className="text-center">Beef</legend>
+                <fieldset id="beef" className="p-0 my-3 bg-dark">
+                    <legend className="text-center">{props.category}</legend>
+                    <div className="row m-2">
                         {recipelist}
-                    </fieldset>
-                </div>
+                    </div>
+                </fieldset>
             </div>
         </div>
     )

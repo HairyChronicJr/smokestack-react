@@ -1,6 +1,6 @@
 export const RECIPES = [
-    {id: 1, category: ["seafood"], name: "Smoked Crab Legs",
-    image: "/assets/images/recipe1.jpg",
+    {id: 1, category: ["Seafood"], name: "Smoked Crab Legs", rating: 5,
+    image: "/assets/images/recipe1.jpg", alt="Crab legs on plate",
     ingredients: ["10lbs Snow Crab Legs", "1lb Real Butter", 
         "2 Tbsp Killer Hogs The BBQ Rub", "1 Tbsp Dried Parsley",
         `1 Tsp Crab/Shrimp Boil Seasoning`, 
@@ -12,5 +12,50 @@ export const RECIPES = [
         "Place the Butter mixture in a half size aluminum steam pan and dredge each crab leg cluster in the butter. Reserve the remaining butter mixture for basting.",
         "Arrange crab clusters on cooking grate and smoke for ½ hour. Basting every ten minutes with reserved butter mixture.",
         "Remove the crab legs from the smoker after 30 minutes of smoking. Legs should be steaming hot at this point.",
-        "Serve immediately with drawn butter, cocktail sauce, and extra lemon wedges."]}
+        "Serve immediately with drawn butter, cocktail sauce, and extra lemon wedges."]},
+    {id: 2, category: ["Beef"], name: "Chimichuri Steak Skewers", rating: 4,
+    image: "/assets/images/recipe2.jpg", alt="Steak skweers on plate",
+    ingredients: ["Small Handful Fresh Parsley, finely chopped",
+        "Small Handful Fresh Coriander, finely chopped",
+        "Small Handful Fresh Oregano, finely chopped",
+        "1 Small Clove Garlic, finely chopped",
+        "1/2 Tsp Dried Chilli Flakes",
+        "1 Tsp Red Wine Vinegar",
+        "3-4 Tbsp EVOO, plus extra for steak",
+        "2 Fat Sirloin Steaks, trimmed and cut into cubes",
+        "1 Red, 1 Orange & 1 Yellow Pepper, deseeded and cut into chunks"],
+    steps: [
+        "Soak your barbecue skewers if you’re using wooden ones (see below) and get the barbecue going.",
+        "To make the chimichurri sauce, combine the chopped parsley, coriander, oregano, garlic, the dried chilli flakes, red wine vinegar, extra virgin olive oil and a good pinch of salt, and set aside to let the flavours meld.",
+        "To assemble the skewers, toss the steak pieces in a little more olive oil, salt and some freshly ground black pepper, before skewering them with the pepper pieces, two pieces of pepper being sure to mix up the colours between each piece of steak.",
+        "Grill over a direct heat until the meat and veggies have charred, but the steak pieces are still pink in the middle – if you have any steak pieces left that did not fit onto the skewers, make a dummy skewer to test if the meat is done or not!",
+        "Serve with the chimichurri on the side!"
+        ]
+    },
+    {id: 3, category: ["Pork"], name: "Smoked Pork Chops", rating: 3.5,
+    image: "/assets/images/recipe3.jpg", alt="Pork chops on plate",
+    ingredients: ["Some pork chops",
+        "Salt and Pepper",
+        "Onions",
+        "Garlic"],
+    steps: [
+        "Yeah, but your scientists were so preoccupied with whether or not they could, they didn't stop to think if they should.",
+        "Remind me to thank John for a lovely weekend.",
+        "Must go faster.",
+        "You're a very talented young man, with your own clever thoughts and ideas.",
+        "Do you need a manager?"]
+    },
+    {id: 4, category: ["Seafood"], name: "Seafood Test", rating: 4.5,
+    image: "/assets/images/recipe1.jpg", alt="Crab legs on plate",
+    ingredients: ["Some pork chops",
+        "Salt and Pepper",
+        "Onions",
+        "Garlic"],
+    steps: [
+        "Yeah, but your scientists were so preoccupied with whether or not they could, they didn't stop to think if they should.",
+        "Remind me to thank John for a lovely weekend.",
+        "Must go faster.",
+        "You're a very talented young man, with your own clever thoughts and ideas.",
+        "Do you need a manager?"]
+    }
 ]

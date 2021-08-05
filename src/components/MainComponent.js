@@ -16,7 +16,8 @@ class Main extends Component {
         return (
             <div>
                 <Switch>
-                    <Route exact path='/recipes' render={() => <RecipeSection recipes={this.state.recipes} />} />
+                    <Route exact path='/recipes' render={() => <RecipeSection recipes={this.state.recipes} category={"Seafood"}/>} />
+                    <Route exact path='/directory/:recipeId' component={RecipeWithId} />
                 </Switch>
                 <Footer />
             </div>
