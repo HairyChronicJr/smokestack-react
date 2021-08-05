@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from './images/smokestack.png';
 
 function Header(props) {
 
@@ -8,7 +9,7 @@ function Header(props) {
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-4">
-                            <img src="img/smokestack.png" alt="smokestack logo" className="img-fluid rounded-circle" />
+                            <img src={logo} alt="smokestack logo" className="img-fluid rounded-circle" />
                         </div>
                     </div>
                 </div>
