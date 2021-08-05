@@ -3,6 +3,7 @@ import Footer from './FooterComponent';
 import { RECIPES } from '../shared/recipes';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import RecipeSection from './RecipeSectionComponent';
+import Header from './HeaderComponent';
 
 class Main extends Component {
     constructor(props) {
@@ -15,6 +16,7 @@ class Main extends Component {
     render() {
         return (
             <div>
+                <Header />
                 <Switch>
                     <Route exact path='/recipes' render={() => <RecipeSection recipes={this.state.recipes} />} />
                 </Switch>
