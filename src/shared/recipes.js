@@ -1,6 +1,6 @@
 export const RECIPES = [
     {id: 1, category: ["Seafood"], name: "Smoked Crab Legs", rating: 5,
-    image: "/assets/images/recipe1.jpg", alt="Crab legs on plate",
+    image: "/assets/images/recipe1.jpg", alt: "Crab legs on plate",
     ingredients: ["10lbs Snow Crab Legs", "1lb Real Butter", 
         "2 Tbsp Killer Hogs The BBQ Rub", "1 Tbsp Dried Parsley",
         `1 Tsp Crab/Shrimp Boil Seasoning`, 
@@ -14,7 +14,7 @@ export const RECIPES = [
         "Remove the crab legs from the smoker after 30 minutes of smoking. Legs should be steaming hot at this point.",
         "Serve immediately with drawn butter, cocktail sauce, and extra lemon wedges."]},
     {id: 2, category: ["Beef"], name: "Chimichuri Steak Skewers", rating: 4,
-    image: "/assets/images/recipe2.jpg", alt="Steak skweers on plate",
+    image: "/assets/images/recipe2.jpg", alt: "Steak skweers on plate",
     ingredients: ["Small Handful Fresh Parsley, finely chopped",
         "Small Handful Fresh Coriander, finely chopped",
         "Small Handful Fresh Oregano, finely chopped",
@@ -33,7 +33,7 @@ export const RECIPES = [
         ]
     },
     {id: 3, category: ["Pork"], name: "Smoked Pork Chops", rating: 3.5,
-    image: "/assets/images/recipe3.jpg", alt="Pork chops on plate",
+    image: "/assets/images/recipe3.jpg", alt: "Pork chops on plate",
     ingredients: ["Some pork chops",
         "Salt and Pepper",
         "Onions",
@@ -46,7 +46,7 @@ export const RECIPES = [
         "Do you need a manager?"]
     },
     {id: 4, category: ["Seafood"], name: "Seafood Test", rating: 4.5,
-    image: "/assets/images/recipe1.jpg", alt="Crab legs on plate",
+    image: "/assets/images/recipe1.jpg", alt: "Crab legs on plate",
     ingredients: ["Some pork chops",
         "Salt and Pepper",
         "Onions",
