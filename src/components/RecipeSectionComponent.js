@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import mainimage from "./images/recipes.jpg";
 
 function RenderStars(rating) {
@@ -6,7 +7,6 @@ function RenderStars(rating) {
     let halfStars = 0;
     if (rating - fullStars > 0) {
         halfStars = 1;
-        console.log('half');
     }
     const emptyStars = 5 - halfStars - rating;
     const starArray = [];
@@ -29,7 +29,9 @@ function RenderStars(rating) {
 function RenderRecipeItem({recipe}) {
     return (
         <div className="col recipe">
-            <img src={recipe.image} alt={recipe.alt} className="img-thumbnail" width="100%"/>
+            <Link to={`/recipes/${recipe.id}`}>
+                <img src={recipe.image} alt={recipe.alt} className="img-thumbnail" width="100%"/>
+            </Link>
             <p class="font-weight-bold text-light">{recipe.name}<br />{RenderStars(recipe.rating)}</p>
         </div>
     )
