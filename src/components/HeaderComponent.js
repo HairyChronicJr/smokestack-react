@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import {Button, DropdownToggle, DropdownMenu, DropdownItem, Modal, ModalHeader, ModalBody, Jumbotron, Collapse, Navbar, Nav,NavbarToggler, NavItem, Form, FormGroup, Input, Label, Dropdown} from 'reactstrap';
 import logo from './images/smokestack.png';
 
@@ -68,26 +68,26 @@ class Header extends Component {
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink  to="/recipes">
+                                    
                                         <Dropdown isOpen={this.state.isRecipeOpen} onClick={this.toggleRecipe}>
                                             <DropdownToggle className="nav-link" color="none" onClick={this.toggleRecipe} caret>
                                                 <i className="fa fa-cutlery fa-lg"/>Recipes
                                                 <DropdownMenu>
-                                                    <DropdownItem>Beef</DropdownItem>
+                                                    <DropdownItem><Link to="/recipes/beef">Beef</Link></DropdownItem>
                                                     <DropdownItem divider/>
-                                                    <DropdownItem>Pork</DropdownItem>
+                                                    <DropdownItem><Link to="/recipes/pork">Pork</Link></DropdownItem>
                                                     <DropdownItem divider/>
-                                                    <DropdownItem>Poultry</DropdownItem>
+                                                    <DropdownItem><Link to="/recipes/poultry">Poultry</Link></DropdownItem>
                                                     <DropdownItem divider/>
-                                                    <DropdownItem>Seafood</DropdownItem>
+                                                    <DropdownItem><Link to="/recipes/seafood">Seafood</Link></DropdownItem>
                                                     <DropdownItem divider/>
-                                                    <DropdownItem>Veggies</DropdownItem>
+                                                    <DropdownItem><Link to="/recipes/veggies">Veggies</Link></DropdownItem>
                                                     <DropdownItem divider/>
-                                                    <DropdownItem>Snacks</DropdownItem>
+                                                    <DropdownItem><Link to="/recipes/snacks">Snacks</Link></DropdownItem>
                                                 </DropdownMenu>
                                             </DropdownToggle>
                                         </Dropdown>
-                                    </NavLink>
+                                    
                                 </NavItem>        
                                 <NavItem>
                                     <NavLink className="nav-link" to="/home">

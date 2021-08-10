@@ -30,7 +30,7 @@ function RenderRecipeItem({recipe}) {
     return (
         <div className="col recipe">
             <Link to={`/recipes/${recipe.id}`}>
-                <img src={recipe.image} alt={recipe.alt} className="img-thumbnail" width="100%"/>
+                <img src={recipe.image} alt={recipe.alt} className="img-thumbnail" width="300"/>
             </Link>
             <p class="font-weight-bold text-light">{recipe.name}<br />{RenderStars(recipe.rating)}</p>
         </div>
@@ -60,7 +60,7 @@ function RecipeSection(props) {
                 </div>
             </div>
             <div className="row">
-                <fieldset id="beef" className="p-0 my-3 bg-dark">
+                <fieldset className="p-0 my-3 mx-auto bg-dark">
                     <legend className="text-center">{props.category}</legend>
                     <div className="row m-2">
                         {recipelist}

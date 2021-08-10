@@ -33,6 +33,7 @@ class Main extends Component {
                     <Route exact path='/recipes/snacks' render={() => <RecipeSection recipes={this.state.recipes} category={"Snacks"}/>} />
                     <Route exact path='/recipes/veggies' render={() => <RecipeSection recipes={this.state.recipes} category={"Veggies"}/>} />
                     <Route exact path='/recipes/:recipeId' component={RecipeWithId} />
+                    <Redirect to='/home' />
                 </Switch>
                 <Footer />
             </div>

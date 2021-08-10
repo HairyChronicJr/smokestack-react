@@ -29,7 +29,7 @@ function RecipeInfo(props) {
         return (
             <div className="container">
                 <div className="row">
-                    <img src={props.recipe.image} width="300" className="pt-3"/>
+                    <img src={props.recipe.image} alt={props.recipe.alt} width="300" className="pt-3"/>
                     <div className="col">
                         <h2 className=" ml-2 pt-3 text-center" id="recipe1Label">{props.recipe.name}</h2>
                         <h3 className="text-warning pl-2">Ingredients</h3>
