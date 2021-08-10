@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import {Button, DropdownToggle, DropdownMenu, DropdownItem, Modal, ModalHeader, ModalBody, Jumbotron, Collapse, Navbar, Nav,NavbarToggler, NavItem, Form, FormGroup, Input, Label} from 'reactstrap';
+import {Button, DropdownToggle, DropdownMenu, DropdownItem, Modal, ModalHeader, ModalBody, Jumbotron, Collapse, Navbar, Nav,NavbarToggler, NavItem, Form, FormGroup, Input, Label, Dropdown} from 'reactstrap';
 import logo from './images/smokestack.png';
 
 class Header extends Component {
@@ -19,8 +19,6 @@ class Header extends Component {
         this.toggleRecipe = this.toggleRecipe.bind(this);
         this.handleLogin = this.handleLogin.bind(this);
     }
-
-
 
     toggleRecipe() {
         this.setState({
@@ -70,40 +68,27 @@ class Header extends Component {
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    
-                                    <NavLink className="nav-link" to="/Recipes" isOpen={this.state.isRecipeOpen} onClick={this.toggleRecipe} >
-                                        <i className="fa fa-cutlery fa-lg" /> Recipes
-                                        <DropdownToggle split onClick={this.toggleRecipe}  />
-                                        <DropdownMenu>
-                                            <DropdownItem>Beef</DropdownItem>
-                                            <DropdownItem divider/>
-                                            <DropdownItem>Pork</DropdownItem>
-                                            <DropdownItem divider/>
-                                            <DropdownItem>Poultry</DropdownItem>
-                                            <DropdownItem divider/>
-                                            <DropdownItem>Seafood</DropdownItem>
-                                            <DropdownItem divider/>
-                                            <DropdownItem>Veggies</DropdownItem>
-                                            <DropdownItem divider/>
-                                            <DropdownItem>Snacks</DropdownItem>
-                                        </DropdownMenu>
-                                        
-                                        <div className="dropdown-menu" aria-labelledby="recipeDropdown">
-                                                <a className="dropdown-item" href="recipes.html#beef"></a>
-                                                <div className="dropdown-divider"></div>
-                                                <a className="dropdown-item" href="recipes.html#pork">Pork</a>
-                                                <div className="dropdown-divider"></div>
-                                                <a className="dropdown-item" href="recipes.html#poultry">Poultry</a>
-                                                <div className="dropdown-divider"></div>
-                                                <a className="dropdown-item" href="recipes.html#seafood">Seafood</a>
-                                                <div className="dropdown-divider"></div>
-                                                <a className="dropdown-item" href="recipes.html#veggies">Veggies</a>
-                                                <div className="dropdown-divider"></div>
-                                                <a className="dropdown-item" href="recipes.html#snacks">Snacks</a>
-                                            </div>                                                
-                                        
+                                    <NavLink  to="/recipes">
+                                        <Dropdown isOpen={this.state.isRecipeOpen} onClick={this.toggleRecipe}>
+                                            <DropdownToggle className="nav-link" color="none" onClick={this.toggleRecipe} caret>
+                                                <i className="fa fa-cutlery fa-lg"/>Recipes
+                                                <DropdownMenu>
+                                                    <DropdownItem>Beef</DropdownItem>
+                                                    <DropdownItem divider/>
+                                                    <DropdownItem>Pork</DropdownItem>
+                                                    <DropdownItem divider/>
+                                                    <DropdownItem>Poultry</DropdownItem>
+                                                    <DropdownItem divider/>
+                                                    <DropdownItem>Seafood</DropdownItem>
+                                                    <DropdownItem divider/>
+                                                    <DropdownItem>Veggies</DropdownItem>
+                                                    <DropdownItem divider/>
+                                                    <DropdownItem>Snacks</DropdownItem>
+                                                </DropdownMenu>
+                                            </DropdownToggle>
+                                        </Dropdown>
                                     </NavLink>
-                                </NavItem>
+                                </NavItem>        
                                 <NavItem>
                                     <NavLink className="nav-link" to="/home">
                                         <i className="fa fa-shopping-bag fa-lg" /> Store
@@ -121,15 +106,14 @@ class Header extends Component {
                                 </a>
                             </span>
                             <span className="navbar-text ml-3">
-                                <Button onClick={this.toggleModal}>
+                                <a role="button" id="loginButton" onClick={this.toggleModal}>
                                     <i className="fa fa-user-circle" />Login
-                                </Button>
+                                </a>
                             </span>
                         </Collapse>
                     </div>
                 </Navbar>
 
-                
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal} id="loginModal">
                     <ModalHeader toggle={this.toggleModal}>Login</ModalHeader>
                     <ModalBody>
