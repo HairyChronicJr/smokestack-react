@@ -1,9 +1,8 @@
 import React from 'react';
 
 function IngredientsList(props) {
-    console.log("inside list: " + props.ingredients);
     return (
-        <ul>
+        <ul className="ingredientsList">
         {props.ingredients.map((ingredient, index) => {
             return (
                 <li key={"ingredient"+{index}}>{ingredient}</li>
@@ -15,7 +14,7 @@ function IngredientsList(props) {
 
 function InstructionsList(props) {
     return (
-        <ol>
+        <ol className="instructionsList">
         {props.instructions.map((instruction, index) => {
             return (
                 <li key={"step"+{index}}>{instruction}</li>
@@ -27,18 +26,21 @@ function InstructionsList(props) {
 
 function RecipeInfo(props) {
     if (props.recipe) {
-        console.log("Inside info component: " + props.recipe.steps);
         return (
             <div className="container">
                 <div className="row">
-                    <img src={props.recipe.image} width="50%"/>
-                    <h5 className=" ml-2" id="recipe1Label">{props.recipe.name}</h5>
+                    <img src={props.recipe.image} width="300" className="pt-3"/>
+                    <div className="col">
+                        <h2 className=" ml-2 pt-3 text-center" id="recipe1Label">{props.recipe.name}</h2>
+                        <h3 className="text-warning pl-2">Ingredients</h3>
+                        <IngredientsList ingredients={props.recipe.ingredients} />
+                    </div>
                 </div>
                 <div className="row">
-                    <h3 className="text-warning">Ingredients</h3>
-                    <IngredientsList ingredients={props.recipe.ingredients} />
-                    <h3 className="text-warning">Instructions</h3>
-                    <InstructionsList instructions={props.recipe.steps} />
+                    <div className="col">
+                        <h3 className="text-warning pl-3">Instructions</h3>
+                        <InstructionsList instructions={props.recipe.steps} />
+                    </div>
                 </div>
             </div>
         )

@@ -1,6 +1,3 @@
-.App {
-  text-align: center;
-}
 
 .App-logo {
   height: 40vmin;
@@ -138,4 +135,13 @@ fieldset {
   position: relative;
   left: 15px;
   bottom: 30px;
+}
+
+.ingredients_list li {
+  text-align: left;
+}
+
+#recipeToggle {
+  margin-left: 0;
+  padding-left: 0;
 }
