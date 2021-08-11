@@ -5,6 +5,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import RecipeSection from './RecipeSectionComponent';
 import RecipeInfoComponent from './RecipeInfoComponent';
 import Header from './HeaderComponent';
+import Body from './BodyComponent';
 
 class Main extends Component {
     constructor(props) {
@@ -25,6 +26,7 @@ class Main extends Component {
         return (
             <div>
                 <Header />
+                <Body />
                 <Switch>
                     <Route exact path='/recipes/beef' render={() => <RecipeSection recipes={this.state.recipes} category={"Beef"}/>} />
                     <Route exact path='/recipes/pork' render={() => <RecipeSection recipes={this.state.recipes} category={"Pork"}/>} />
