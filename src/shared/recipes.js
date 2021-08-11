@@ -155,7 +155,7 @@ steps: [
     "You really think you can fly that thing?",
     "Yes, Yes, without the oops!"]
 },
-{id: 11, category: ["Snacks"], name: "Snacks Test", rating: 4,
+{id: 12, category: ["Snacks"], name: "Snacks Test", rating: 4,
 image: "/assets/images/snacks-placeholder.jpg", alt: "Meatballs on plate",
 ingredients: ["Beef or pork meatballs",
     "Thick cut bacon",

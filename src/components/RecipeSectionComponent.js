@@ -44,6 +44,7 @@ function RecipeSection(props) {
         }
     }
     const filteredList = props.recipes.filter(categoryCheck);
+    console.log('Filtered list: ' + JSON.stringify(filteredList));
     const recipelist = filteredList.map(recipe => {
         return (
             <div className="col" key={recipe.id}>
