@@ -145,3 +145,7 @@ fieldset {
   margin-left: 0;
   padding-left: 0;
 }
+
+#recipe-link {
+  color: rgba(255,255,255,.5);
+}

@@ -71,7 +71,7 @@ class Header extends Component {
                                     
                                         <Dropdown isOpen={this.state.isRecipeOpen} onClick={this.toggleRecipe}>
                                             <DropdownToggle className="nav-link" color="none" onClick={this.toggleRecipe} caret>
-                                                <i className="fa fa-cutlery fa-lg"/>Recipes
+                                                <i className="fa fa-cutlery fa-lg"/><Link id="recipe-link" to="recipes/beef">Recipes</Link>
                                                 <DropdownMenu>
                                                     <DropdownItem><Link to="/recipes/beef">Beef</Link></DropdownItem>
                                                     <DropdownItem divider/>
