@@ -1,4 +1,11 @@
 import React from "react";
+import susie from './images/susie.png';
+import grill from './images/grill.jpeg';
+import apron from './images/apron.jpeg';
+import gloves from './images/gloves.jpeg';
+import pellets from './images/pellets.jpeg';
+import rub from './images/rub.jpeg';
+import techniques from './images/techniques.jpeg';
 
 function Body(){
     return(
@@ -8,7 +15,7 @@ function Body(){
                 <div className="row justify-content-center">
                     <div className="col-md-5 col-lg-3 border border-dark newsletter">
                         <h3 className="text-center mb-3 newsletter-title">Featured Griller</h3>
-                            <img className="border border-dark img-fluid rounded-circle mt-1" src="img/susie.png" width="100%" />
+                            <img className="border border-dark img-fluid rounded-circle mt-1" src={susie} alt="Susie" width="100%" />
                         <h5 className="text-center mt-3 newsletter-title"><u>Susie Bulloch</u></h5>
                             <p className="text-center d-none d-sm-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Commodo odio aenean sed adipiscing diam donec adipiscing tristique risus. Urna neque viverra justo nec ultrices dui sapien. Eget sit amet tellus cras. Semper viverra nam libero justo laoreet sit amet. Sed odio morbi quis commodo odio aenean. Mattis ullamcorper velit sed ullamcorper. Faucibus nisl tincidunt eget nullam. Quam quisque id diam vel quam. Praesent elementum facilisis leo vel fringilla. Sodales neque sodales ut etiam sit amet.</p>
                     </div>
@@ -27,35 +34,35 @@ function Body(){
                                     </ol>
                                     <div className="carousel-inner">
                                         <div className="carousel-item active">
-                                            <img className="d-block w-100 img-responive" src="img resized/grill.jpeg" alt="grill" />
+                                            <img className="d-block w-100 img-responive" src={grill} alt="grill" />
                                             <div className="carousel-caption">
                                                 <h3 className="carousel-caption-title">Woodwind Wifi 24 w/Sear Box</h3>
                                                 <p className="d-none d-sm-block">nunc consequat interdum varius sit amet mattis vulputate enim nulla</p>
                                             </div>
                                         </div>
                                         <div className="carousel-item">
-                                            <img className="d-block w-100 img-responive" src="img resized/apron.jpeg" alt="apron" />
+                                            <img className="d-block w-100 img-responive" src={apron} alt="apron" />
                                             <div className="carousel-caption">
                                                 <h3 className="carousel-caption-title">Chef's Apron</h3>
                                                 <p className="d-none d-sm-block">nunc consequat interdum varius sit amet mattis vulputate enim nulla</p>
                                             </div>                           
                                         </div>
                                         <div className="carousel-item">
-                                            <img className="d-block w-100 img-responive" src="img resized/gloves.jpeg" alt="gloves" />
+                                            <img className="d-block w-100 img-responive" src={gloves}alt="gloves" />
                                             <div className="carousel-caption">
                                                 <h3 className="carousel-caption-title">Heat Guard Gloves</h3>
                                                 <p className="d-none d-sm-block">nunc consequat interdum varius sit amet mattis vulputate enim nulla</p>
                                             </div>
                                         </div>
                                         <div className="carousel-item">
-                                            <img className="d-block w-100 img-responive" src="img resized/pellets.jpeg" alt="pellets" />
+                                            <img className="d-block w-100 img-responive" src={pellets} alt="pellets" />
                                             <div className="carousel-caption">
                                                 <h3 className="carousel-caption-title">Premium Hardwood Pellets</h3>
                                                 <p className="d-none d-sm-block">nunc consequat interdum varius sit amet mattis vulputate enim nulla</p>
                                             </div>
                                         </div>
                                         <div className="carousel-item">
-                                            <img className="d-block w-100 img-responive" src="img resized/rub.jpeg" alt="rub" />
+                                            <img className="d-block w-100 img-responive" src={rub} alt="rub" />
                                             <div className="carousel-caption">
                                                 <h3 className="carousel-caption-title">BBQ Rubs</h3>
                                                 <p className="d-none d-sm-block">nunc consequat interdum varius sit amet mattis vulputate enim nulla</p>
@@ -83,7 +90,7 @@ function Body(){
                                 <p className="tip-content text-center d-none d-sm-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Leo a diam sollicitudin tempor id eu nisl nunc. Enim nunc faucibus a pellentesque sit amet porttitor eget dolor.</p>
                             </div>
                             <div className="col-lg-7">             
-                                <img className="img-fluid w-100" id="techniques" src="img resized/techniques.jpeg" alt="techniques" />
+                                <img className="img-fluid w-100" id="techniques" src={techniques} alt="techniques" />
                             </div>
                         </div>     
                     </div>
