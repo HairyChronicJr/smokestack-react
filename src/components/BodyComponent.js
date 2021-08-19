@@ -11,33 +11,36 @@ import techniques from './images/techniques.jpeg';
 
 const items = [
     {
-        src: {grill},
+        src: grill,
         altText: "grill",
-        caption: "Woodwind Wifi 24 w/Sear Box"
+        captionHeader: "Woodwind Wifi 24 w/Sear Box",
+        captionText: "nunc consequat interdum varius sit amet mattis vulputate enim nulla"
     },
     {
-        src: {apron},
+        src: apron,
         altText: "apron",
-        caption: "Chef's Apron"
+        captionHeader: "Chef's Apron",
+        captionText: "nunc consequat interdum varius sit amet mattis vulputate enim nulla"
     },
     {
-        src: {gloves},
+        src: gloves,
         altText: "gloves",
-        caption: "Heat Guard Gloves"
+        captionHeader: "Heat Guard Gloves",
+        captionText: "nunc consequat interdum varius sit amet mattis vulputate enim nulla"
     },
     {
-        src: {pellets},
+        src: pellets,
         altText: "pellets",
-        caption: "Premium Hardwood Pellets"
+        captionHeader: "Premium Hardwood Pellets",
+        captionText: "nunc consequat interdum varius sit amet mattis vulputate enim nulla"
     },
     {
-        src: {rub},
+        src: rub,
         altText: "rub",
-        caption: "BBQ Rubs"
+        captionHeader: "BBQ Rubs",
+        captionText: "nunc consequat interdum varius sit amet mattis vulputate enim nulla"
     }
 ];
-
-// <p className="d-none d-sm-block">nunc consequat interdum varius sit amet mattis vulputate enim nulla</p>
 
 const Body = (props) => {
 
@@ -69,7 +72,7 @@ const Body = (props) => {
             key={item.src}
             >
             <img src={item.src} alt={item.altText} />
-            <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
+            <CarouselCaption captionText={item.captionText} captionHeader={item.captionHeader} />
             </CarouselItem>
         );
     });
