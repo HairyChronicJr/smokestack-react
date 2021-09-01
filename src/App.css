@@ -149,3 +149,7 @@ fieldset {
 #recipe-link {
   color: rgba(255,255,255,.5);
 }
+
+.carousel-item > img {
+  width: 100%;
+}

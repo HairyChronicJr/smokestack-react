@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useState} from "react";
+import {Carousel, CarouselItem, CarouselControl, CarouselIndicators,CarouselCaption} from 'reactstrap';
 import susie from './images/susie.png';
 import grill from './images/grill.jpeg';
 import apron from './images/apron.jpeg';
@@ -7,10 +8,78 @@ import pellets from './images/pellets.jpeg';
 import rub from './images/rub.jpeg';
 import techniques from './images/techniques.jpeg';
 
-function Body(){
+
+const items = [
+    {
+        src: grill,
+        altText: "grill",
+        captionHeader: "Woodwind Wifi 24 w/Sear Box",
+        captionText: "nunc consequat interdum varius sit amet mattis vulputate enim nulla"
+    },
+    {
+        src: apron,
+        altText: "apron",
+        captionHeader: "Chef's Apron",
+        captionText: "nunc consequat interdum varius sit amet mattis vulputate enim nulla"
+    },
+    {
+        src: gloves,
+        altText: "gloves",
+        captionHeader: "Heat Guard Gloves",
+        captionText: "nunc consequat interdum varius sit amet mattis vulputate enim nulla"
+    },
+    {
+        src: pellets,
+        altText: "pellets",
+        captionHeader: "Premium Hardwood Pellets",
+        captionText: "nunc consequat interdum varius sit amet mattis vulputate enim nulla"
+    },
+    {
+        src: rub,
+        altText: "rub",
+        captionHeader: "BBQ Rubs",
+        captionText: "nunc consequat interdum varius sit amet mattis vulputate enim nulla"
+    }
+];
+
+const Body = (props) => {
+
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [animating, setAnimating] = useState(false);
+
+    const next = () => {
+        if (animating) return;
+        const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
+        setActiveIndex(nextIndex);
+    }
+
+    const previous = () => {
+        if (animating) return;
+        const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
+        setActiveIndex(nextIndex);
+    }
+
+    const goToIndex = (newIndex) => {
+        if (animating) return;
+        setActiveIndex(newIndex);
+    }
+
+    const slides = items.map((item) => {
+        return (
+            <CarouselItem
+            onExiting={() => setAnimating(true)}
+            onExited={() => setAnimating(false)}
+            key={item.src}
+            >
+            <img src={item.src} alt={item.altText} />
+            <CarouselCaption captionText={item.captionText} captionHeader={item.captionHeader} />
+            </CarouselItem>
+        );
+    });
+
     return(
-        <>
-            <main className="container my-5">
+        
+            <div className="container my-5">
 
                 <div className="row justify-content-center">
                     <div className="col-md-5 col-lg-3 border border-dark newsletter">
@@ -24,63 +93,27 @@ function Body(){
                         <div className="row justify-content-center">
                             <div className="col-lg-9">
                                 <h3 className="text-center text-nowrap mb-3 carousel-title">Featured Store Items</h3>
-                                <div id="homeCarousel" className="carousel slide" data-ride="carousel">
-                                    <ol className="carousel-indicators">
-                                        <li data-target="#homeCarousel" data-slide-to="0" className="active"></li>
-                                        <li data-target="#homeCarousel" data-slide-to="1"></li>
-                                        <li data-target="#homeCarousel" data-slide-to="2"></li>
-                                        <li data-target="#homeCarousel" data-slide-to="3"></li>
-                                        <li data-target="#homeCarousel" data-slide-to="4"></li>
-                                    </ol>
-                                    <div className="carousel-inner">
-                                        <div className="carousel-item active">
-                                            <img className="d-block w-100 img-responive" src={grill} alt="grill" />
-                                            <div className="carousel-caption">
-                                                <h3 className="carousel-caption-title">Woodwind Wifi 24 w/Sear Box</h3>
-                                                <p className="d-none d-sm-block">nunc consequat interdum varius sit amet mattis vulputate enim nulla</p>
-                                            </div>
-                                        </div>
-                                        <div className="carousel-item">
-                                            <img className="d-block w-100 img-responive" src={apron} alt="apron" />
-                                            <div className="carousel-caption">
-                                                <h3 className="carousel-caption-title">Chef's Apron</h3>
-                                                <p className="d-none d-sm-block">nunc consequat interdum varius sit amet mattis vulputate enim nulla</p>
-                                            </div>                           
-                                        </div>
-                                        <div className="carousel-item">
-                                            <img className="d-block w-100 img-responive" src={gloves}alt="gloves" />
-                                            <div className="carousel-caption">
-                                                <h3 className="carousel-caption-title">Heat Guard Gloves</h3>
-                                                <p className="d-none d-sm-block">nunc consequat interdum varius sit amet mattis vulputate enim nulla</p>
-                                            </div>
-                                        </div>
-                                        <div className="carousel-item">
-                                            <img className="d-block w-100 img-responive" src={pellets} alt="pellets" />
-                                            <div className="carousel-caption">
-                                                <h3 className="carousel-caption-title">Premium Hardwood Pellets</h3>
-                                                <p className="d-none d-sm-block">nunc consequat interdum varius sit amet mattis vulputate enim nulla</p>
-                                            </div>
-                                        </div>
-                                        <div className="carousel-item">
-                                            <img className="d-block w-100 img-responive" src={rub} alt="rub" />
-                                            <div className="carousel-caption">
-                                                <h3 className="carousel-caption-title">BBQ Rubs</h3>
-                                                <p className="d-none d-sm-block">nunc consequat interdum varius sit amet mattis vulputate enim nulla</p>
-                                            </div> 
-                                        </div>
-                                    </div>
-                                    <a className="carousel-control-prev" href="#homeCarousel" role="button" data-slide="prev">
-                                        <span className="carousel-control-prev-icon"></span>
-                                        <span className="sr-only">Previous</span>
-                                    </a>
-                                    <a className="carousel-control-next" href="#homeCarousel" role="button" data-slide="next">
-                                        <span className="carousel-control-next-icon"></span>
-                                        <span className="sr-only">Next</span>
-                                    </a>
-                                    <button className="btn btn-dark btn-sm" id="carouselButton">
-                                        <i className="fa fa-pause"></i>
-                                    </button>
-                                </div>
+
+                                <Carousel
+                                    activeIndex={activeIndex}
+                                    next={next}
+                                    previous={previous}
+                                >
+                                    <CarouselIndicators 
+                                        items={items} 
+                                        activeIndex={activeIndex} onClickHandler={goToIndex}
+                                    />
+                                    {slides}
+                                    <CarouselControl 
+                                        direction="prev" directionText="Previous" 
+                                        onClickHandler={previous} 
+                                    />
+                                    <CarouselControl 
+                                    direction="next" 
+                                    directionText="Next" 
+                                    onClickHandler={next} 
+                                    />
+                                </Carousel>
                             </div>
                         </div>
 
@@ -103,8 +136,8 @@ function Body(){
                     </div>
                 </div>
 
-            </main>
-        </>
+            </div>
+        
     );
 }
 
