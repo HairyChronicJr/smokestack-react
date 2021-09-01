@@ -153,3 +153,7 @@ fieldset {
 .carousel-item > img {
   width: 100%;
 }
+
+.favorite {
+  color: #FFA500
+}
