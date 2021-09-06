@@ -72,7 +72,7 @@ const Body = (props) => {
             key={item.src}
             >
             <img src={item.src} alt={item.altText} />
-            <CarouselCaption captionText={item.captionText} captionHeader={item.captionHeader} />
+            <CarouselCaption captionText={item.captionText} captionHeader={item.captionHeader}/>
             </CarouselItem>
         );
     });

@@ -90,7 +90,7 @@ main {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.carousel-caption-title {
+.carousel-caption > h3 {
   color: #FFA500;
 }
 
@@ -155,5 +155,20 @@ fieldset {
 }
 
 .favorite {
-  color: #FFA500
+  color: #FFA500;
+}
+
+.card-title {
+  font-weight: 500;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+h2 {
+  color: #FFA500;
+}
+
+.card-img-overlay .card-title {
+  color: #FFA500;
+  background-color: rgba(0,0,0,0.5);
 }

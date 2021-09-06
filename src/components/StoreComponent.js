@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {Card, CardImg, CardImgOverlay, CardTitle} from 'reactstrap';
 
-function RenderStoreItem(storeItem) {
+function RenderStoreItem({storeItem}) {
     return(
         <Card>
             <Link to={`/store/${storeItem.id}`}>

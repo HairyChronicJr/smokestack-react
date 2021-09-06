@@ -8,6 +8,7 @@ import RecipeInfoComponent from './RecipeInfoComponent';
 import Header from './HeaderComponent';
 import Body from './BodyComponent';
 import Store from './StoreComponent';
+import ItemInfo from './ItemInfoComponent';
 
 class Main extends Component {
     constructor(props) {
@@ -26,6 +27,14 @@ class Main extends Component {
             )
         }
 
+        const ItemWithId = ({match}) => {
+            return(
+                <ItemInfo
+                    item={this.state.storeItems.filter(item => item.id === +match.params.itemId)[0]}
+                />
+            );
+        };
+
         return (
             <div>
                 <Header />
@@ -40,6 +49,7 @@ class Main extends Component {
                     <Route exact path='/recipes/:recipeId' component={RecipeWithId} />
                     <Route exact path='/store' render={() => 
                     <Store storeItems={this.state.storeItems}/>} />
+                    <Route path='/store/:itemId' component={ItemWithId} />
                     <Redirect to='/home' />
                 </Switch>
                 <Footer />
