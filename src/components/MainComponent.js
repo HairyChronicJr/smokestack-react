@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import Footer from './FooterComponent';
 import { RECIPES } from '../shared/recipes';
+import { STOREITEMS } from '../shared/storeItems';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import RecipeSection from './RecipeSectionComponent';
 import RecipeInfoComponent from './RecipeInfoComponent';
 import Header from './HeaderComponent';
 import Body from './BodyComponent';
+import Store from './StoreComponent';
 
 class Main extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            recipes: RECIPES
+            recipes: RECIPES,
+            storeItems: STOREITEMS
         }
     }
 
@@ -35,6 +38,8 @@ class Main extends Component {
                     <Route exact path='/recipes/snacks' render={() => <RecipeSection recipes={this.state.recipes} category={"Snacks"}/>} />
                     <Route exact path='/recipes/veggies' render={() => <RecipeSection recipes={this.state.recipes} category={"Veggies"}/>} />
                     <Route exact path='/recipes/:recipeId' component={RecipeWithId} />
+                    <Route exact path='/store' render={() => 
+                    <Store storeItems={this.state.storeItems}/>} />
                     <Redirect to='/home' />
                 </Switch>
                 <Footer />
