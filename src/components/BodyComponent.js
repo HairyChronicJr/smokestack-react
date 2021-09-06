@@ -1,12 +1,12 @@
 import React, {useState} from "react";
 import {Carousel, CarouselItem, CarouselControl, CarouselIndicators,CarouselCaption} from 'reactstrap';
 import susie from './images/susie.png';
-import grill from './images/grill.jpeg';
-import apron from './images/apron.jpeg';
-import gloves from './images/gloves.jpeg';
-import pellets from './images/pellets.jpeg';
-import rub from './images/rub.jpeg';
-import techniques from './images/techniques.jpeg';
+import grill from './images/grill.jpg';
+import apron from './images/apron.jpg';
+import gloves from './images/gloves.jpg';
+import pellets from './images/pellets.jpg';
+import rub from './images/rub.jpg';
+import techniques from './images/techniques.jpg';
 
 
 const items = [
