@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {Carousel, CarouselItem, CarouselControl, CarouselIndicators,CarouselCaption} from 'reactstrap';
+import { Link } from 'react-router-dom';
 import susie from './images/susie.png';
 import grill from './images/grill.jpg';
 import apron from './images/apron.jpg';
@@ -14,19 +15,22 @@ const items = [
         src: grill,
         altText: "grill",
         captionHeader: "Woodwind Wifi 24 w/Sear Box",
-        captionText: "nunc consequat interdum varius sit amet mattis vulputate enim nulla"
+        captionText: "nunc consequat interdum varius sit amet mattis vulputate enim nulla",
+        id: 0
     },
     {
         src: apron,
         altText: "apron",
         captionHeader: "Chef's Apron",
-        captionText: "nunc consequat interdum varius sit amet mattis vulputate enim nulla"
+        captionText: "nunc consequat interdum varius sit amet mattis vulputate enim nulla",
+        id: 1
     },
     {
         src: gloves,
         altText: "gloves",
         captionHeader: "Heat Guard Gloves",
-        captionText: "nunc consequat interdum varius sit amet mattis vulputate enim nulla"
+        captionText: "nunc consequat interdum varius sit amet mattis vulputate enim nulla",
+        id: 2
     },
     {
         src: pellets,
@@ -71,7 +75,9 @@ const Body = (props) => {
             onExited={() => setAnimating(false)}
             key={item.src}
             >
-            <img src={item.src} alt={item.altText} />
+            <Link to={item.id ? `/store/${item.id}` : `/store`}>
+                <img src={item.src} alt={item.altText} />
+            </Link>
             <CarouselCaption captionText={item.captionText} captionHeader={item.captionHeader}/>
             </CarouselItem>
         );

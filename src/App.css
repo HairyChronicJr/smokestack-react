@@ -150,7 +150,7 @@ fieldset {
   color: rgba(255,255,255,.5);
 }
 
-.carousel-item > img {
+.carousel-item > a > img {
   width: 100%;
 }
 
