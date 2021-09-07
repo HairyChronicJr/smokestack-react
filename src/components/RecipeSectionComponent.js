@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import mainimage from "./images/recipes.jpg";
 
 function RenderStars(rating) {
@@ -29,7 +29,7 @@ function RenderStars(rating) {
 function RenderRecipeItem({recipe}) {
     return (
         <div className="col recipe">
-            <Link to={`/recipes/${recipe.id}`}>
+            <Link to={`/recipes/recipe/${recipe.id}`}>
                 <img src={recipe.image} alt={recipe.alt} className="img-thumbnail" width="300"/>
             </Link>
             <p class="font-weight-bold text-light">{recipe.name}<br />{RenderStars(recipe.rating)}</p>
@@ -38,13 +38,13 @@ function RenderRecipeItem({recipe}) {
 }
 
 function RecipeSection(props) {
+    const { category } = useParams();
     const categoryCheck = recipe => {
-        if (recipe.category.includes(props.category)) {
+        if (recipe.category.includes(category)) {
             return recipe;
         }
     }
     const filteredList = props.recipes.filter(categoryCheck);
-    console.log('Filtered list: ' + JSON.stringify(filteredList));
     const recipelist = filteredList.map(recipe => {
         return (
             <div className="col" key={recipe.id}>
@@ -62,7 +62,7 @@ function RecipeSection(props) {
             </div>
             <div className="row">
                 <fieldset className="p-0 my-3 mx-auto bg-dark">
-                    <legend className="text-center">{props.category}</legend>
+                    <legend className="text-center">{category}</legend>
                     <div className="row m-2">
                         {recipelist}
                     </div>

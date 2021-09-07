@@ -73,17 +73,17 @@ class Header extends Component {
                                             <DropdownToggle className="nav-link" color="none" onClick={this.toggleRecipe} caret>
                                                 <i className="fa fa-cutlery fa-lg"/><Link id="recipe-link" to="recipes/beef">Recipes</Link>
                                                 <DropdownMenu>
-                                                    <DropdownItem><Link to="/recipes/beef">Beef</Link></DropdownItem>
+                                                    <DropdownItem><Link to="/recipes/Beef">Beef</Link></DropdownItem>
                                                     <DropdownItem divider/>
-                                                    <DropdownItem><Link to="/recipes/pork">Pork</Link></DropdownItem>
+                                                    <DropdownItem><Link to="/recipes/Pork">Pork</Link></DropdownItem>
                                                     <DropdownItem divider/>
-                                                    <DropdownItem><Link to="/recipes/poultry">Poultry</Link></DropdownItem>
+                                                    <DropdownItem><Link to="/recipes/Poultry">Poultry</Link></DropdownItem>
                                                     <DropdownItem divider/>
-                                                    <DropdownItem><Link to="/recipes/seafood">Seafood</Link></DropdownItem>
+                                                    <DropdownItem><Link to="/recipes/Seafood">Seafood</Link></DropdownItem>
                                                     <DropdownItem divider/>
-                                                    <DropdownItem><Link to="/recipes/veggies">Veggies</Link></DropdownItem>
+                                                    <DropdownItem><Link to="/recipes/Veggies">Veggies</Link></DropdownItem>
                                                     <DropdownItem divider/>
-                                                    <DropdownItem><Link to="/recipes/snacks">Snacks</Link></DropdownItem>
+                                                    <DropdownItem><Link to="/recipes/Snacks">Snacks</Link></DropdownItem>
                                                 </DropdownMenu>
                                             </DropdownToggle>
                                         </Dropdown>

@@ -40,13 +40,8 @@ class Main extends Component {
                 <Header />
                 <Switch>
                     <Route path='/home' component={Body} />
-                    <Route exact path='/recipes/beef' render={() => <RecipeSection recipes={this.state.recipes} category={"Beef"}/>} />
-                    <Route exact path='/recipes/pork' render={() => <RecipeSection recipes={this.state.recipes} category={"Pork"}/>} />
-                    <Route exact path='/recipes/seafood' render={() => <RecipeSection recipes={this.state.recipes} category={"Seafood"}/>} />
-                    <Route exact path='/recipes/poultry' render={() => <RecipeSection recipes={this.state.recipes} category={"Poultry"}/>} />
-                    <Route exact path='/recipes/snacks' render={() => <RecipeSection recipes={this.state.recipes} category={"Snacks"}/>} />
-                    <Route exact path='/recipes/veggies' render={() => <RecipeSection recipes={this.state.recipes} category={"Veggies"}/>} />
-                    <Route exact path='/recipes/:recipeId' component={RecipeWithId} />
+                    <Route exact path='/recipes/recipe/:recipeId' component={RecipeWithId} />
+                    <Route exact path='/recipes/:category' render={() => <RecipeSection recipes={this.state.recipes} />} />
                     <Route exact path='/store' render={() => 
                     <Store storeItems={this.state.storeItems}/>} />
                     <Route path='/store/:itemId' component={ItemWithId} />
