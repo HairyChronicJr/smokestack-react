@@ -75,7 +75,7 @@ const Body = (props) => {
             onExited={() => setAnimating(false)}
             key={item.src}
             >
-            <Link to={item.id ? `/store/${item.id}` : `/store`}>
+            <Link to={('id' in item) ? `/store/${item.id}` : `/store`}>
                 <img src={item.src} alt={item.altText} />
             </Link>
             <CarouselCaption captionText={item.captionText} captionHeader={item.captionHeader}/>
