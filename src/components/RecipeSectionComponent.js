@@ -30,7 +30,7 @@ function RenderRecipeItem({recipe}) {
     return (
         <div className="col recipe">
             <Link to={`/recipes/recipe/${recipe.id}`}>
-                <img src={recipe.image} alt={recipe.alt} className="img-thumbnail" width="300"/>
+                <img src={recipe.image} alt={recipe.alt} className="img-thumbnail recipeImage" />
             </Link>
             <p class="font-weight-bold text-light">{recipe.name}<br />{RenderStars(recipe.rating)}</p>
         </div>
