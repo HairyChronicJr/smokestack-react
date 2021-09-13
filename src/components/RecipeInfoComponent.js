@@ -39,6 +39,7 @@ function RecipeInfo(props) {
                         <h2 className=" ml-2 pt-3 text-center" id="recipe1Label">{props.recipe.name}{'   '}
                         {!favorite && <i class="fa fa-heart-o favorite" aria-hidden="true" onClick={handleFave}></i>}
                         {favorite && <i class="fa fa-heart favorite" aria-hidden="true" onClick={handleFave}></i>}</h2>
+                        <h4 className="text-center">by {props.recipe.author}</h4>
                         <h3 className="text-warning pl-2">Ingredients</h3>
                         <IngredientsList ingredients={props.recipe.ingredients} />
                     </div>
