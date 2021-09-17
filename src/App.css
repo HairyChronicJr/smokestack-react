@@ -107,7 +107,7 @@ main {
   color: #FFA500; 
 }
 
-  legend {
+legend {
   background-color: #FFA500;
   width: 22%;
   border-radius: 5px;
@@ -177,4 +177,13 @@ h2 {
   width: 100%;
   height: undefined;
   aspect-ratio: 2/3;
+}
+
+.time-stats {
+  border: 2px solid rgba(0,0,0,.15);
+  border-radius: 4px;
+}
+
+.time-stats > p {
+  padding-left: 8px;
 }
