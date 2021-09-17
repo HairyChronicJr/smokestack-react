@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Rating from './RatingComponent';
 
 function IngredientsList(props) {
     return (
@@ -34,8 +35,13 @@ function RecipeInfo(props) {
         return (
             <div className="container">
                 <div className="row">
-                    <img src={props.recipe.image} alt={props.recipe.alt} width="300" className="pt-3"/>
-                    <div className="col">
+                    <div className='col'>
+                        <img src={props.recipe.image} alt={props.recipe.alt} width="100%" className="pt-3"/>
+                        <div className="text-center">
+                            <Rating rating={props.recipe.rating} />
+                        </div>
+                    </div>
+                    <div className="col-8">
                         <h2 className=" ml-2 pt-3 text-center" id="recipe1Label">{props.recipe.name}{'   '}
                         {!favorite && <i class="fa fa-heart-o favorite" aria-hidden="true" onClick={handleFave}></i>}
                         {favorite && <i class="fa fa-heart favorite" aria-hidden="true" onClick={handleFave}></i>}</h2>
