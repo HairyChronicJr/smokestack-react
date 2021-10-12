@@ -14,15 +14,25 @@ class Main extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            recipes: RECIPES,
+            recipes: [],
             storeItems: STOREITEMS
         }
+    }
+
+    componentDidMount() {
+        this.getRecipes();
+    }
+
+    getRecipes = () => {
+        fetch('/api/getRecipes')
+        .then(res => res.json())
+        .then(recipes => this.setState({ recipes }))
     }
 
     render() {
         const RecipeWithId = ({match}) => {
             return (
-                <RecipeInfoComponent recipe={this.state.recipes.filter(recipe => recipe.id === +match.params.recipeId)[0]} 
+                <RecipeInfoComponent recipe={this.state.recipes.RECIPES.filter(recipe => recipe.id === +match.params.recipeId)[0]} 
                 />
             )
         }
