@@ -11,13 +11,18 @@ class Header extends Component {
         this.state = { 
             isNavOpen: false,
             isModalOpen: false,
-            isRecipeOpen: false
+            isRecipeOpen: false,
+            email: '',
+            password: '',
+            firstname: '',
+            lastname: ''
         };
 
         this.toggleNav = this.toggleNav.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
         this.toggleRecipe = this.toggleRecipe.bind(this);
         this.handleLogin = this.handleLogin.bind(this);
+        this.handleRegistration = this.handleRegistration.bind(this);
     }
 
     toggleRecipe() {
@@ -42,6 +47,10 @@ class Header extends Component {
         alert(`Email address: ${this.loginEmail.value} Password: ${this.loginPassword.value} Remember: ${this.remember.checked}`);
         this.toggleModal();
         event.preventDefault();
+    }
+
+    handleRegistration() {
+        alert('test');
     }
 
     render(){
@@ -132,11 +141,39 @@ class Header extends Component {
                                     Remember me
                                 </Label>
                             </FormGroup>
+                            
                             <Button type="cancel" color="secondary" value="cancel">Cancel</Button>
                             <Button type="submit" color="primary" value="submit">Sign in</Button>
+                            <Button className='float-right' color='success' onClick={this.handleRegistration}>Register</Button>
                         </Form>
                     </ModalBody>
                 </Modal>
+
+            {/* <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal} id="registrationModal">
+                <ModalHeader toggle={this.toggleModal}>Register</ModalHeader>
+                <ModalBody>
+                        <Form onSubmit={this.handleRegistration}>
+                            <FormGroup>
+                                <Label htmlFor="email">Email address</Label>
+                                <Input type="text" id="email" name="email" placeholder="Enter email" innerRef={input => this.email = input} />
+                            </FormGroup>
+                            <FormGroup>
+                                <Label htmlFor="password">Password</Label>
+                                <Input type="password" id="password" name="password" placeholder="Password" innerRef={input => this.password = input}/>
+                            </FormGroup>
+                            <FormGroup>
+                                <Label htmlFor="firstname">Firstname</Label>
+                                <Input type="text" id="firstname" name="firstname" placeholder="Firstname" innerRef={input => this.firstname = input} />
+                            </FormGroup>
+                            <FormGroup>
+                                <Label htmlFor="lastname">Lastname</Label>
+                                <Input type="text" id="lastname" name="lastname" placeholder="Lastname" innerRef={input => this.lastname = input} />
+                            </FormGroup>
+                            <Button type="cancel" color="secondary" value="cancel">Cancel</Button>
+                            <Button type="submit" color="primary" value="submit">Register</Button>
+                        </Form>
+                    </ModalBody>
+        </Modal> */}
             </>
         );
     }
