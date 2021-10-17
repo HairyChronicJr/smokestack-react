@@ -1,18 +1,14 @@
 const express = require('express');
 const path = require('path');
 
-const recipes = require('./data/recipes');
+const recipeRouter = require('./routes/recipeRouter');
 
 const app = express();
 
 // Serve the static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
 
-app.get('/api/getRecipes', (req, res) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'application/json');
-    res.json(recipes);
-})
+app.use('/api/recipes', recipeRouter);
 
 const port = process.env.PORT || 5000;
 app.listen(port);

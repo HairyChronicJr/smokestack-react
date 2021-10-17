@@ -24,7 +24,7 @@ class Main extends Component {
     }
 
     getRecipes = () => {
-        fetch('/api/getRecipes')
+        fetch('/api/recipes')
         .then(res => res.json())
         .then(recipes => this.setState({ recipes }))
     }
