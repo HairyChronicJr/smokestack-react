@@ -41,7 +41,7 @@ class Header extends Component {
     }
 
     handleLogin(event) {
-        alert(`Email address: ${this.loginEmail.value} Password: ${this.loginPassword.value} Remember: ${this.remember.checked}`);
+        alert(`Username: ${this.username.value} Password: ${this.loginPassword.value} Remember: ${this.remember.checked}`);
         this.toggleModal();
         event.preventDefault();
     }
@@ -63,8 +63,8 @@ class Header extends Component {
                     <ModalBody>
                         <Form>
                             <FormGroup>
-                                <Label htmlFor="loginEmail">Email address</Label>
-                                <Input type="text" id="loginEmail" name="loginEmail" placeholder="Enter email" innerRef={input => this.loginEmail = input} />
+                                <Label htmlFor="username">Username</Label>
+                                <Input type="text" id="username" name="username" placeholder="Enter username" innerRef={input => this.username= input} />
                             </FormGroup>
                             <FormGroup>
                                 <Label htmlFor="loginPassword">Password</Label>
@@ -98,8 +98,8 @@ class Header extends Component {
                                 <Input type="text" id="lastname" name="lastname" placeholder="Lastname" innerRef={input => this.lastName = input} />
                             </FormGroup>
                             <FormGroup>
-                                <Label htmlFor="loginEmail">Email address</Label>
-                                <Input type="text" id="loginEmail" name="loginEmail" placeholder="Enter email" innerRef={input => this.loginEmail = input} />
+                                <Label htmlFor="username">Username</Label>
+                                <Input type="text" id="username" name="username" placeholder="Enter username" innerRef={input => this.username = input} />
                             </FormGroup>
                             <FormGroup>
                                 <Label htmlFor="loginPassword">Password</Label>
