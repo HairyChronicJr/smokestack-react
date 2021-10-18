@@ -12,10 +12,6 @@ class Header extends Component {
             isNavOpen: false,
             isModalOpen: false,
             isRecipeOpen: false,
-            email: '',
-            password: '',
-            firstname: '',
-            lastname: '',
             isRegistering: false
         };
 
@@ -60,7 +56,7 @@ class Header extends Component {
     render(){
         const isRegistering = this.state.isRegistering;
         let loginModal;
-        if(isRegistering === false) {
+        if(!isRegistering) {
             loginModal =
                 <div>
                     <ModalHeader toggle={this.toggleModal}>Login</ModalHeader>
@@ -95,11 +91,11 @@ class Header extends Component {
                         <Form>
                             <FormGroup>
                                 <Label htmlFor="firstname">Firstname</Label>
-                                <Input type="text" id="firstname" name="firstname" placeholder="Firstname" innerRef={input => this.firstname = input} />
+                                <Input type="text" id="firstname" name="firstname" placeholder="Firstname" innerRef={input => this.firstName = input} />
                             </FormGroup>
                             <FormGroup>
                                 <Label htmlFor="lastname">Lastname</Label>
-                                <Input type="text" id="lastname" name="lastname" placeholder="Lastname" innerRef={input => this.lastname = input} />
+                                <Input type="text" id="lastname" name="lastname" placeholder="Lastname" innerRef={input => this.lastName = input} />
                             </FormGroup>
                             <FormGroup>
                                 <Label htmlFor="loginEmail">Email address</Label>
@@ -114,7 +110,7 @@ class Header extends Component {
                             <Button onSubmit={this.handleLogin} color="primary" value="submit">Register</Button>
                         </Form>
                     </ModalBody>
-                </div>
+                </div>   
         }
         return (
             <>
