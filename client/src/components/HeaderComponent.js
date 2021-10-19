@@ -12,10 +12,7 @@ class Header extends Component {
             isNavOpen: false,
             isModalOpen: false,
             isRecipeOpen: false,
-            email: '',
-            password: '',
-            firstname: '',
-            lastname: ''
+            isRegistering: false
         };
 
         this.toggleNav = this.toggleNav.bind(this);
@@ -44,16 +41,77 @@ class Header extends Component {
     }
 
     handleLogin(event) {
-        alert(`Email address: ${this.loginEmail.value} Password: ${this.loginPassword.value} Remember: ${this.remember.checked}`);
+        alert(`Username: ${this.username.value} Password: ${this.loginPassword.value} Remember: ${this.remember.checked}`);
         this.toggleModal();
         event.preventDefault();
     }
 
-    handleRegistration() {
-        alert('test');
+    handleRegistration(event) {
+        this.setState({
+            isRegistering: !this.state.isRegistering
+        });
+        event.preventDefault();
     }
 
     render(){
+        const isRegistering = this.state.isRegistering;
+        let loginModal;
+        if(!isRegistering) {
+            loginModal =
+                <div>
+                    <ModalHeader toggle={this.toggleModal}>Login</ModalHeader>
+                    <ModalBody>
+                        <Form>
+                            <FormGroup>
+                                <Label htmlFor="username">Username</Label>
+                                <Input type="text" id="username" name="username" placeholder="Enter username" innerRef={input => this.username= input} />
+                            </FormGroup>
+                            <FormGroup>
+                                <Label htmlFor="loginPassword">Password</Label>
+                                <Input type="password" id="loginPassword" name="loginPassword" placeholder="Password" innerRef={input => this.loginPassword = input}/>
+                            </FormGroup>
+                            <FormGroup check>
+                                <Label check>
+                                    <Input type="checkbox" name="remember" innerRef={input => this.remember = input} />
+                                    Remember me
+                                </Label>
+                            </FormGroup>
+
+                            <Button type="cancel" color="secondary" value="cancel">Cancel</Button>
+                            <Button type="submit" color="primary" value="submit">Sign in</Button>
+                            <Button className='float-right' color='success' type='submit' onClick={this.handleRegistration}>Register</Button>
+                        </Form>
+                    </ModalBody>
+                </div>
+        } else {
+            loginModal =
+                <div>
+                    <ModalHeader toggle={this.toggleModal}>Register</ModalHeader>
+                    <ModalBody>
+                        <Form>
+                            <FormGroup>
+                                <Label htmlFor="firstname">Firstname</Label>
+                                <Input type="text" id="firstname" name="firstname" placeholder="Firstname" innerRef={input => this.firstName = input} />
+                            </FormGroup>
+                            <FormGroup>
+                                <Label htmlFor="lastname">Lastname</Label>
+                                <Input type="text" id="lastname" name="lastname" placeholder="Lastname" innerRef={input => this.lastName = input} />
+                            </FormGroup>
+                            <FormGroup>
+                                <Label htmlFor="username">Username</Label>
+                                <Input type="text" id="username" name="username" placeholder="Enter username" innerRef={input => this.username = input} />
+                            </FormGroup>
+                            <FormGroup>
+                                <Label htmlFor="loginPassword">Password</Label>
+                                <Input type="password" id="loginPassword" name="loginPassword" placeholder="Password" innerRef={input => this.loginPassword = input}/>
+                            </FormGroup>
+
+                            <Button type="cancel" color="secondary" value="cancel">Cancel</Button>
+                            <Button onSubmit={this.handleLogin} color="primary" value="submit">Register</Button>
+                        </Form>
+                    </ModalBody>
+                </div>   
+        }
         return (
             <>
                 <Jumbotron fluid className="bg-dark mb-0">
@@ -124,56 +182,8 @@ class Header extends Component {
                 </Navbar>
 
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal} id="loginModal">
-                    <ModalHeader toggle={this.toggleModal}>Login</ModalHeader>
-                    <ModalBody>
-                        <Form onSubmit={this.handleLogin}>
-                            <FormGroup>
-                                <Label htmlFor="loginEmail">Email address</Label>
-                                <Input type="text" id="loginEmail" name="loginEmail" placeholder="Enter email" innerRef={input => this.loginEmail = input} />
-                            </FormGroup>
-                            <FormGroup>
-                                <Label htmlFor="loginPassword">Password</Label>
-                                <Input type="password" id="loginPassword" name="loginPassword" placeholder="Password" innerRef={input => this.loginPassword = input}/>
-                            </FormGroup>
-                            <FormGroup check>
-                                <Label check>
-                                    <Input type="checkbox" name="remember" innerRef={input => this.remember = input} />
-                                    Remember me
-                                </Label>
-                            </FormGroup>
-                            
-                            <Button type="cancel" color="secondary" value="cancel">Cancel</Button>
-                            <Button type="submit" color="primary" value="submit">Sign in</Button>
-                            <Button className='float-right' color='success' onClick={this.handleRegistration}>Register</Button>
-                        </Form>
-                    </ModalBody>
+                    {loginModal}
                 </Modal>
-
-            {/* <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal} id="registrationModal">
-                <ModalHeader toggle={this.toggleModal}>Register</ModalHeader>
-                <ModalBody>
-                        <Form onSubmit={this.handleRegistration}>
-                            <FormGroup>
-                                <Label htmlFor="email">Email address</Label>
-                                <Input type="text" id="email" name="email" placeholder="Enter email" innerRef={input => this.email = input} />
-                            </FormGroup>
-                            <FormGroup>
-                                <Label htmlFor="password">Password</Label>
-                                <Input type="password" id="password" name="password" placeholder="Password" innerRef={input => this.password = input}/>
-                            </FormGroup>
-                            <FormGroup>
-                                <Label htmlFor="firstname">Firstname</Label>
-                                <Input type="text" id="firstname" name="firstname" placeholder="Firstname" innerRef={input => this.firstname = input} />
-                            </FormGroup>
-                            <FormGroup>
-                                <Label htmlFor="lastname">Lastname</Label>
-                                <Input type="text" id="lastname" name="lastname" placeholder="Lastname" innerRef={input => this.lastname = input} />
-                            </FormGroup>
-                            <Button type="cancel" color="secondary" value="cancel">Cancel</Button>
-                            <Button type="submit" color="primary" value="submit">Register</Button>
-                        </Form>
-                    </ModalBody>
-        </Modal> */}
             </>
         );
     }
