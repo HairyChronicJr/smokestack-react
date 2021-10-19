@@ -4,9 +4,7 @@ const passport = require('passport');
 const config = require('./config');
 
 const recipeRouter = require('./routes/recipeRouter');
-<<<<<<< HEAD
 const storeRouter = require('./routes/storeRouter');
-=======
 const usersRouter = require('./routes/users');
 
 const mongoose = require('mongoose');
@@ -22,7 +20,6 @@ const connect = mongoose.connect(url, {
 connect.then(() => console.log('Connected correctly to server'), 
     err => console.log(err)
 );
->>>>>>> 039ca6f94f9f632028a847103a532e431e407edb
 
 const app = express();
 
@@ -36,9 +33,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(passport.initialize());
 
 app.use('/api/recipes', recipeRouter);
-<<<<<<< HEAD
 app.use('/api/store', storeRouter);
-=======
 app.use('/users', usersRouter);
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -58,7 +53,6 @@ app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error');
 });
->>>>>>> 039ca6f94f9f632028a847103a532e431e407edb
 
 const port = process.env.PORT || 5000;
 app.listen(port);
