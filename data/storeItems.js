@@ -1,4 +1,4 @@
-export const STOREITEMS = [
+module.exports.STOREITEMS = [
     {
         id: 0,
         name: "Woodwind Wifi 24 w/Sear Box",
@@ -19,5 +19,41 @@ export const STOREITEMS = [
         image: "/assets/images/gloves.jpg",
         price:"$24.00",
         description: "Protect your hands and arms while cooking. These high quality leather gloves will guard against heat and are perfect for Dutch oven cooking, frying or any other type of cooking that may require additional protection."
+    }
+];
+
+module.exports.CAROUSELITEMS = [
+    {
+        src: '/assets/images/grill.jpg',
+        altText: "grill",
+        captionHeader: "Woodwind Wifi 24 w/Sear Box",
+        captionText: "nunc consequat interdum varius sit amet mattis vulputate enim nulla",
+        id: 0
+    },
+    {
+        src: '/assets/images/apron.jpg',
+        altText: "apron",
+        captionHeader: "Chef's Apron",
+        captionText: "nunc consequat interdum varius sit amet mattis vulputate enim nulla",
+        id: 1
+    },
+    {
+        src: '/assets/images/gloves.jpg',
+        altText: "gloves",
+        captionHeader: "Heat Guard Gloves",
+        captionText: "nunc consequat interdum varius sit amet mattis vulputate enim nulla",
+        id: 2
+    },
+    {
+        src: '/assets/images/pellets.jpg',
+        altText: "pellets",
+        captionHeader: "Premium Hardwood Pellets",
+        captionText: "nunc consequat interdum varius sit amet mattis vulputate enim nulla"
+    },
+    {
+        src: "/assets/images/rub.jpg",
+        altText: "rub",
+        captionHeader: "BBQ Rubs",
+        captionText: "nunc consequat interdum varius sit amet mattis vulputate enim nulla"
     }
 ];

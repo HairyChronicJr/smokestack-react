@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import Footer from './FooterComponent';
-import { RECIPES } from '../shared/recipes';
-import { STOREITEMS } from '../shared/storeItems';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import RecipeSection from './RecipeSectionComponent';
 import RecipeInfoComponent from './RecipeInfoComponent';
@@ -15,18 +13,25 @@ class Main extends Component {
         super(props);
         this.state = {
             recipes: [],
-            storeItems: STOREITEMS
+            storeItems: []
         }
     }
 
     componentDidMount() {
         this.getRecipes();
+        this.getStoreItems();
     }
 
     getRecipes = () => {
         fetch('/api/recipes')
         .then(res => res.json())
         .then(recipes => this.setState({ recipes }))
+    }
+
+    getStoreItems = () => {
+        fetch('/api/store')
+        .then(res => res.json())
+        .then(storeItems => this.setState({ storeItems }))
     }
 
     render() {
@@ -40,7 +45,7 @@ class Main extends Component {
         const ItemWithId = ({match}) => {
             return(
                 <ItemInfo
-                    item={this.state.storeItems.filter(item => item.id === +match.params.itemId)[0]}
+                    item={this.state.storeItems.STOREITEMS.filter(item => item.id === +match.params.itemId)[0]}
                 />
             );
         };

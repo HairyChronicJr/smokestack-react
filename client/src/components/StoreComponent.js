@@ -18,7 +18,7 @@ function RenderStoreItem({storeItem}) {
 
 function Store(props) {
 
-    const storeItem = props.storeItems.map(storeItem => {
+    const storeItem = props.storeItems.STOREITEMS.map(storeItem => {
         return(
             <div key={storeItem.id} className='col-md-5 m-1'>
                 <RenderStoreItem storeItem={storeItem} />

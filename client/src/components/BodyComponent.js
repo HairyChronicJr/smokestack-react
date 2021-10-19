@@ -1,55 +1,22 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Carousel, CarouselItem, CarouselControl, CarouselIndicators,CarouselCaption} from 'reactstrap';
 import { Link } from 'react-router-dom';
 import susie from './images/susie.png';
-import grill from './images/grill.jpg';
-import apron from './images/apron.jpg';
-import gloves from './images/gloves.jpg';
-import pellets from './images/pellets.jpg';
-import rub from './images/rub.jpg';
 import techniques from './images/techniques.jpg';
-
-
-const items = [
-    {
-        src: grill,
-        altText: "grill",
-        captionHeader: "Woodwind Wifi 24 w/Sear Box",
-        captionText: "nunc consequat interdum varius sit amet mattis vulputate enim nulla",
-        id: 0
-    },
-    {
-        src: apron,
-        altText: "apron",
-        captionHeader: "Chef's Apron",
-        captionText: "nunc consequat interdum varius sit amet mattis vulputate enim nulla",
-        id: 1
-    },
-    {
-        src: gloves,
-        altText: "gloves",
-        captionHeader: "Heat Guard Gloves",
-        captionText: "nunc consequat interdum varius sit amet mattis vulputate enim nulla",
-        id: 2
-    },
-    {
-        src: pellets,
-        altText: "pellets",
-        captionHeader: "Premium Hardwood Pellets",
-        captionText: "nunc consequat interdum varius sit amet mattis vulputate enim nulla"
-    },
-    {
-        src: rub,
-        altText: "rub",
-        captionHeader: "BBQ Rubs",
-        captionText: "nunc consequat interdum varius sit amet mattis vulputate enim nulla"
-    }
-];
 
 const Body = (props) => {
 
     const [activeIndex, setActiveIndex] = useState(0);
     const [animating, setAnimating] = useState(false);
+    const [carouselItems, setCarouselItems] = useState([]);
+
+    useEffect(() => {
+        fetch('/api/store/carousel')
+            .then(res => res.json())
+            .then(carouselItems => setCarouselItems(carouselItems))
+        }, [])
+
+    const items = carouselItems;
 
     const next = () => {
         if (animating) return;
