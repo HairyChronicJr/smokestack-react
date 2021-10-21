@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const passport = require('passport');
 const config = require('./config');
+const logger = require('morgan');
 
 const recipeRouter = require('./routes/recipeRouter');
 const storeRouter = require('./routes/storeRouter');
