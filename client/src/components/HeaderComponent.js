@@ -19,6 +19,7 @@ class Header extends Component {
         this.toggleModal = this.toggleModal.bind(this);
         this.toggleRecipe = this.toggleRecipe.bind(this);
         this.handleLogin = this.handleLogin.bind(this);
+        this.toggleRegistration = this.toggleRegistration.bind(this);
         this.handleRegistration = this.handleRegistration.bind(this);
     }
 
@@ -47,6 +48,19 @@ class Header extends Component {
     }
 
     handleRegistration(event) {
+        const regData = {"username": this.username.value, "password": this.loginPassword.value, "firstname": this.firstName.value, "lastname": this.lastName.value};
+        fetch('http://localhost:3000/users/signup', {
+            method: "post",
+            headers: {
+                "Content-Type" : "application/json"
+            },
+            body: JSON.stringify(regData)
+        });
+        this.toggleModal();
+        event.preventDefault();
+    }
+
+    toggleRegistration(event) {
         this.setState({
             isRegistering: !this.state.isRegistering
         });
@@ -79,7 +93,7 @@ class Header extends Component {
 
                             <Button type="cancel" color="secondary" value="cancel">Cancel</Button>
                             <Button type="submit" color="primary" value="submit">Sign in</Button>
-                            <Button className='float-right' color='success' type='submit' onClick={this.handleRegistration}>Register</Button>
+                            <Button className='float-right' color='success' type='submit' onClick={this.toggleRegistration}>Register</Button>
                         </Form>
                     </ModalBody>
                 </div>
@@ -88,7 +102,7 @@ class Header extends Component {
                 <div>
                     <ModalHeader toggle={this.toggleModal}>Register</ModalHeader>
                     <ModalBody>
-                        <Form>
+                        <Form onSubmit={this.handleRegistration}>
                             <FormGroup>
                                 <Label htmlFor="firstname">Firstname</Label>
                                 <Input type="text" id="firstname" name="firstname" placeholder="Firstname" innerRef={input => this.firstName = input} />
@@ -107,7 +121,7 @@ class Header extends Component {
                             </FormGroup>
 
                             <Button type="cancel" color="secondary" value="cancel">Cancel</Button>
-                            <Button onSubmit={this.handleLogin} color="primary" value="submit">Register</Button>
+                            <Button type="submit" color="primary" value="submit">Register</Button>
                         </Form>
                     </ModalBody>
                 </div>   
