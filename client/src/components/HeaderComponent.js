@@ -12,7 +12,8 @@ class Header extends Component {
             isNavOpen: false,
             isModalOpen: false,
             isRecipeOpen: false,
-            isRegistering: false
+            isRegistering: false,
+            registrationError: null
         };
 
         this.toggleNav = this.toggleNav.bind(this);
@@ -55,8 +56,16 @@ class Header extends Component {
                 "Content-Type" : "application/json"
             },
             body: JSON.stringify(regData)
+        })
+        .then(res => {
+            if (res.status === 500) {
+                console.log('User already exists');
+                this.setState({registrationError: "This username already exists."});
+            } else {
+                this.setState({registrationError: null});
+                this.toggleModal();
+            }
         });
-        this.toggleModal();
         event.preventDefault();
     }
 
@@ -114,6 +123,7 @@ class Header extends Component {
                             <FormGroup>
                                 <Label htmlFor="username">Username</Label>
                                 <Input type="text" id="username" name="username" placeholder="Enter username" innerRef={input => this.username = input} />
+                                <span class="error">{this.state.registrationError}</span>
                             </FormGroup>
                             <FormGroup>
                                 <Label htmlFor="loginPassword">Password</Label>

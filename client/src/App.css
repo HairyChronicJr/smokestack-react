@@ -187,3 +187,7 @@ h2 {
 .time-stats > p {
   padding-left: 8px;
 }
+
+.error {
+  color: red;
+}
